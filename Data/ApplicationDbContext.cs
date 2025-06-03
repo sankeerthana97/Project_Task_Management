@@ -65,7 +65,7 @@ namespace Project_Task_Management.Data
                 entity.HasOne(e => e.Project)
                     .WithMany(p => p.ProjectAssignments)
                     .HasForeignKey(e => e.ProjectId)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.NoAction);
 
                 entity.HasOne(e => e.Employee)
                     .WithMany()

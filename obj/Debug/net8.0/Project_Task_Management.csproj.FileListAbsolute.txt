@@ -78,3 +78,4 @@ C:\Users\HP\source\repos\Project_Task_Management\obj\Debug\net8.0\refint\Project
 C:\Users\HP\source\repos\Project_Task_Management\obj\Debug\net8.0\Project_Task_Management.pdb
 C:\Users\HP\source\repos\Project_Task_Management\obj\Debug\net8.0\Project_Task_Management.genruntimeconfig.cache
 C:\Users\HP\source\repos\Project_Task_Management\obj\Debug\net8.0\ref\Project_Task_Management.dll
+C:\Users\HP\source\repos\Project_Task_Management\obj\Debug\net8.0\Project_Task_Management.sourcelink.json
