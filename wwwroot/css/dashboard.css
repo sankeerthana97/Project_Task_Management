@@ -1,0 +1,196 @@
+/* Dashboard Layout */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #343a40;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul li a {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li a:hover {
+    background: #495057;
+}
+
+#sidebar ul li.active > a {
+    background: #0d6efd;
+}
+
+#sidebar ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 40px !important;
+}
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+#sidebarCollapse {
+    background: #343a40;
+    border: none;
+}
+
+#sidebarCollapse:hover {
+    background: #495057;
+}
+
+/* User Dropdown */
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Icons */
+.bi {
+    margin-right: 10px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+/* Dashboard Stats */
+.stat-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.stat-card .stat-title {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.stat-card .stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.stat-card .stat-icon {
+    font-size: 2rem;
+    color: #0d6efd;
+}
+
+/* Task List */
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.task-item:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+/* Project Cards */
+.project-card {
+    height: 100%;
+}
+
+.project-card .progress {
+    height: 5px;
+}
+
+/* Team Members */
+.team-member {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.team-member img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Charts */
+.chart-container {
+    position: relative;
+    margin: auto;
+    height: 300px;
+} 

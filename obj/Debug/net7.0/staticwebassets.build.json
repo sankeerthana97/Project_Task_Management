@@ -1,0 +1,743 @@
+{
+  "Version": 1,
+  "Hash": "WzJfYBjRxOrTxa/0lwRvjNAlgfrNiYSg7tznamu7Jl4=",
+  "Source": "Project_Task_Management",
+  "BasePath": "_content/Project_Task_Management",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Project_Task_Management\\wwwroot",
+      "Source": "Project_Task_Management",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "css/auth#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "g11y4lgsb0",
+      "Integrity": "PM6mGsSk426TfGM0YiH2cxQdXfZncp3TWbRUaPD91gU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\auth.css"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "css/dashboard#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fzvx1v7tkw",
+      "Integrity": "K002zxoE0C1NyHlDl9f6Su4uSaPlh5M7OXSj402xWw0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "js/auth#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6vcrttuy1s",
+      "Integrity": "4qpI7eWqGTZ6VTkZmt5ikFK8J0OfQ9loh7i3TCbWIpI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\auth.js"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "js/dashboard#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ffbma138uf",
+      "Integrity": "WwHEKz4dLNcwQYImJYnVj/qtdgskxbtoE3n6hIEFhB4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\dashboard.js"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "pages/dashboard/layout#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "86rpyskmpf",
+      "Integrity": "0GcfB4uA3hl19vhQf2c9xIT//nAJqlcw1xl4bXEjCK4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\dashboard\\layout.html"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "pages/login#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qu4cgk8a9y",
+      "Integrity": "koPvSQk9opcgqeJ1ih6I58jh2g6PaZeR5TmBOxstERo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\login.html"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "SourceId": "Project_Task_Management",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "BasePath": "_content/Project_Task_Management",
+      "RelativePath": "pages/register#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "v1uyz5cpqg",
+      "Integrity": "XfytYE36xdCU3BgkWfQxlmJaWReEPp7lSZ7E3H0H9Ts=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\pages\\register.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/auth.css",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PM6mGsSk426TfGM0YiH2cxQdXfZncp3TWbRUaPD91gU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-PM6mGsSk426TfGM0YiH2cxQdXfZncp3TWbRUaPD91gU="
+        }
+      ]
+    },
+    {
+      "Route": "css/auth.g11y4lgsb0.css",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2052"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"PM6mGsSk426TfGM0YiH2cxQdXfZncp3TWbRUaPD91gU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "g11y4lgsb0"
+        },
+        {
+          "Name": "label",
+          "Value": "css/auth.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-PM6mGsSk426TfGM0YiH2cxQdXfZncp3TWbRUaPD91gU="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.css",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3142"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"K002zxoE0C1NyHlDl9f6Su4uSaPlh5M7OXSj402xWw0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:10:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-K002zxoE0C1NyHlDl9f6Su4uSaPlh5M7OXSj402xWw0="
+        }
+      ]
+    },
+    {
+      "Route": "css/dashboard.fzvx1v7tkw.css",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3142"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"K002zxoE0C1NyHlDl9f6Su4uSaPlh5M7OXSj402xWw0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:10:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fzvx1v7tkw"
+        },
+        {
+          "Name": "label",
+          "Value": "css/dashboard.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-K002zxoE0C1NyHlDl9f6Su4uSaPlh5M7OXSj402xWw0="
+        }
+      ]
+    },
+    {
+      "Route": "js/auth.6vcrttuy1s.js",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5626"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qpI7eWqGTZ6VTkZmt5ikFK8J0OfQ9loh7i3TCbWIpI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:59:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6vcrttuy1s"
+        },
+        {
+          "Name": "label",
+          "Value": "js/auth.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qpI7eWqGTZ6VTkZmt5ikFK8J0OfQ9loh7i3TCbWIpI="
+        }
+      ]
+    },
+    {
+      "Route": "js/auth.js",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5626"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4qpI7eWqGTZ6VTkZmt5ikFK8J0OfQ9loh7i3TCbWIpI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:59:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4qpI7eWqGTZ6VTkZmt5ikFK8J0OfQ9loh7i3TCbWIpI="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.ffbma138uf.js",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WwHEKz4dLNcwQYImJYnVj/qtdgskxbtoE3n6hIEFhB4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:10:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ffbma138uf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/dashboard.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WwHEKz4dLNcwQYImJYnVj/qtdgskxbtoE3n6hIEFhB4="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.js",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9992"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WwHEKz4dLNcwQYImJYnVj/qtdgskxbtoE3n6hIEFhB4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:10:45 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WwHEKz4dLNcwQYImJYnVj/qtdgskxbtoE3n6hIEFhB4="
+        }
+      ]
+    },
+    {
+      "Route": "pages/dashboard/layout.86rpyskmpf.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0GcfB4uA3hl19vhQf2c9xIT//nAJqlcw1xl4bXEjCK4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:09:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "86rpyskmpf"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/dashboard/layout.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0GcfB4uA3hl19vhQf2c9xIT//nAJqlcw1xl4bXEjCK4="
+        }
+      ]
+    },
+    {
+      "Route": "pages/dashboard/layout.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4768"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0GcfB4uA3hl19vhQf2c9xIT//nAJqlcw1xl4bXEjCK4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 17:09:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0GcfB4uA3hl19vhQf2c9xIT//nAJqlcw1xl4bXEjCK4="
+        }
+      ]
+    },
+    {
+      "Route": "pages/login.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"koPvSQk9opcgqeJ1ih6I58jh2g6PaZeR5TmBOxstERo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-koPvSQk9opcgqeJ1ih6I58jh2g6PaZeR5TmBOxstERo="
+        }
+      ]
+    },
+    {
+      "Route": "pages/login.qu4cgk8a9y.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"koPvSQk9opcgqeJ1ih6I58jh2g6PaZeR5TmBOxstERo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qu4cgk8a9y"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/login.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-koPvSQk9opcgqeJ1ih6I58jh2g6PaZeR5TmBOxstERo="
+        }
+      ]
+    },
+    {
+      "Route": "pages/register.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4166"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XfytYE36xdCU3BgkWfQxlmJaWReEPp7lSZ7E3H0H9Ts=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XfytYE36xdCU3BgkWfQxlmJaWReEPp7lSZ7E3H0H9Ts="
+        }
+      ]
+    },
+    {
+      "Route": "pages/register.v1uyz5cpqg.html",
+      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4166"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XfytYE36xdCU3BgkWfQxlmJaWReEPp7lSZ7E3H0H9Ts=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 03 Jun 2025 16:58:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "v1uyz5cpqg"
+        },
+        {
+          "Name": "label",
+          "Value": "pages/register.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XfytYE36xdCU3BgkWfQxlmJaWReEPp7lSZ7E3H0H9Ts="
+        }
+      ]
+    }
+  ]
+}
