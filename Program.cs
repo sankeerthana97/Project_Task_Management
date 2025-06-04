@@ -9,6 +9,10 @@ using System.Text;
 using Project_Task_Management.Data;
 using Project_Task_Management.Models;
 using Microsoft.IdentityModel.JsonWebTokens;
+using Microsoft.AspNetCore.Http; // For StringValues
+using System.Linq; // For FirstOrDefault
+using System.Collections.Generic; // For IEnumerable
+using System.IdentityModel.Tokens.Jwt; // For JwtSecurityTokenHandler
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -96,26 +100,56 @@ app.UseStaticFiles();
 // Add JWT token middleware to handle token from localStorage
 app.Use(async (context, next) =>
 {
-    var token = context.Request.Cookies["jwt"] ?? context.Request.Headers["Authorization"];
+    // Try to get token from cookie first
+    var token = context.Request.Cookies["jwt"];
+    if (string.IsNullOrEmpty(token))
+    {
+        // If no cookie, try to get from Authorization header
+        var authHeader = context.Request.Headers["Authorization"];
+        if (!string.IsNullOrEmpty(authHeader.ToString()) && authHeader.ToString().StartsWith("Bearer "))
+        {
+            token = authHeader.ToString().Substring("Bearer ".Length).Trim();
+        }
+    }
+
     if (!string.IsNullOrEmpty(token))
     {
-        if (token.StartsWith("Bearer "))
-        {
-            token = token.Substring("Bearer ".Length).Trim();
-        }
-        
         try
         {
-            var jwtToken = new JsonWebToken(token);
-            var userId = jwtToken.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
-            if (!string.IsNullOrEmpty(userId))
+            // Get the token validation parameters from the JWT configuration
+            var tokenValidationParameters = new TokenValidationParameters
             {
-                var userManager = context.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
-                var user = await userManager.FindByIdAsync(userId);
-                if (user != null)
-                {
-                    context.User = new ClaimsPrincipal(new ClaimsIdentity(jwtToken.Claims, "jwt"));
-                }
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                ValidAudience = builder.Configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            };
+
+            // Validate the token using the same parameters as JWT Bearer
+            var handler = new JwtSecurityTokenHandler();
+            var parameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                ValidAudience = builder.Configuration["Jwt:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            };
+
+            var principal = handler.ValidateToken(token, parameters, out var _);
+            if (principal != null)
+            {
+                context.User = principal;
+            }
+            
+            if (principal != null)
+            {
+                context.User = principal;
             }
         }
         catch

@@ -3,6 +3,24 @@ const API_URL = '/api/auth';
 const LOGIN_ENDPOINT = `${API_URL}/login`;
 const REGISTER_ENDPOINT = `${API_URL}/register`;
 
+// Function to set up API request interceptor
+function setupApiInterceptor(token) {
+    // Add token to all API requests
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+        const [resource, config] = args;
+        
+        // Only add token to API requests
+        if (resource.startsWith('/api/')) {
+            const headers = config.headers || {};
+            headers['Authorization'] = `Bearer ${token}`;
+            config.headers = headers;
+        }
+        
+        return originalFetch(...args);
+    };
+}
+
 // Utility functions
 function showError(element, message) {
     if (element.tagName === 'FORM') {
@@ -90,6 +108,9 @@ if (loginForm) {
                     sameSite: 'Lax'
                 };
                 document.cookie = `jwt=${encodeURIComponent(data.token)}; ${Object.entries(cookieOptions).map(([key, value]) => `${key}=${value}`).join('; ')}`;
+                
+                // Set up API request interceptor
+                setupApiInterceptor(data.token);
             }
 
             const roles = data.user?.roles || [];
