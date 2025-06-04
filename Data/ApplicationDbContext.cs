@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using Project_Task_Management.Models;
 using Project_Task_Management.Models;
 
 namespace Project_Task_Management.Data
@@ -15,6 +17,8 @@ namespace Project_Task_Management.Data
         public DbSet<Project> Projects { get; set; }
         public DbSet<EmployeeProfile> EmployeeProfiles { get; set; }
         public DbSet<ProjectAssignment> ProjectAssignments { get; set; }
+        public DbSet<Project_Task_Management.Models.Task> Tasks { get; set; }
+        public DbSet<TaskComment> TaskComments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -113,6 +117,18 @@ namespace Project_Task_Management.Data
 
             builder.Entity<ProjectAssignment>()
                 .HasIndex(pa => new { pa.ProjectId, pa.EmployeeId });
+
+            // Configure Task entity
+            builder.Entity<Project_Task_Management.Models.Task>()
+                .HasIndex(t => t.ProjectId);
+            builder.Entity<Project_Task_Management.Models.Task>()
+                .HasIndex(t => t.EmployeeId);
+
+            // Configure TaskComment entity
+            builder.Entity<TaskComment>()
+                .HasIndex(tc => tc.TaskId);
+            builder.Entity<TaskComment>()
+                .HasIndex(tc => tc.UserId);
         }
     }
-} 
+}
