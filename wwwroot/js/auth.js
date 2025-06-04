@@ -5,24 +5,55 @@ const REGISTER_ENDPOINT = `${API_URL}/register`;
 
 // Utility functions
 function showError(element, message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    element.classList.add('is-invalid');
-    element.parentNode.appendChild(errorDiv);
+    if (element.tagName === 'FORM') {
+        let errorDiv = element.querySelector('.form-error-message');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'alert alert-danger form-error-message';
+            element.insertBefore(errorDiv, element.firstChild);
+        }
+        errorDiv.textContent = message;
+        return;
+    }
+
+    const existingError = element.parentNode.querySelector('.error-message');
+    if (!existingError) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message text-danger small mt-1';
+        errorDiv.textContent = message;
+        element.classList.add('is-invalid');
+        element.parentNode.appendChild(errorDiv);
+    }
 }
 
 function clearErrors(form) {
     form.querySelectorAll('.error-message').forEach(error => error.remove());
     form.querySelectorAll('.is-invalid').forEach(input => input.classList.remove('is-invalid'));
+
+    const formError = form.querySelector('.form-error-message');
+    if (formError) formError.remove();
 }
 
 function showSuccess(message) {
     const successDiv = document.createElement('div');
     successDiv.className = 'alert alert-success';
     successDiv.textContent = message;
-    document.querySelector('.card-body').insertBefore(successDiv, document.querySelector('form'));
-    setTimeout(() => successDiv.remove(), 3000);
+    const form = document.querySelector('form');
+    if (form) {
+        form.parentNode.insertBefore(successDiv, form);
+        setTimeout(() => successDiv.remove(), 3000);
+    }
+}
+
+// Safe JSON parse helper
+async function safeParseJSON(response) {
+    try {
+        const text = await response.text();
+        if (!text) return {};
+        return JSON.parse(text);
+    } catch {
+        return {};
+    }
 }
 
 // Login form handling
@@ -32,32 +63,30 @@ if (loginForm) {
         e.preventDefault();
         clearErrors(loginForm);
 
-        const email = document.getElementById('email').value;
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
-        const rememberMe = document.getElementById('rememberMe').checked;
 
         try {
             const response = await fetch(LOGIN_ENDPOINT, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password, rememberMe })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
             });
 
-            const data = await response.json();
+            const data = await safeParseJSON(response);
 
             if (!response.ok) {
                 throw new Error(data.message || 'Login failed');
             }
 
-            // Store token if provided
             if (data.token) {
                 localStorage.setItem('authToken', data.token);
             }
 
-            // Redirect based on role
-            switch (data.role) {
+            const roles = data.user?.roles || [];
+            const primaryRole = roles.length > 0 ? roles[0] : null;
+
+            switch (primaryRole) {
                 case 'Manager':
                     window.location.href = '/pages/dashboard/manager-dashboard.html';
                     break;
@@ -71,7 +100,7 @@ if (loginForm) {
                     window.location.href = '/pages/dashboard/employee-dashboard.html';
             }
         } catch (error) {
-            showError(document.getElementById('email'), error.message);
+            showError(loginForm, error.message);
         }
     });
 }
@@ -83,14 +112,13 @@ if (registerForm) {
         e.preventDefault();
         clearErrors(registerForm);
 
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
         const role = document.getElementById('role').value;
 
-        // Password validation
         if (password !== confirmPassword) {
             showError(document.getElementById('confirmPassword'), 'Passwords do not match');
             return;
@@ -104,19 +132,17 @@ if (registerForm) {
         try {
             const response = await fetch(REGISTER_ENDPOINT, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     firstName,
                     lastName,
                     email,
                     password,
-                    role
-                })
+                    role,
+                }),
             });
 
-            const data = await response.json();
+            const data = await safeParseJSON(response);
 
             if (!response.ok) {
                 throw new Error(data.message || 'Registration failed');
@@ -127,15 +153,15 @@ if (registerForm) {
                 window.location.href = '/pages/login.html';
             }, 2000);
         } catch (error) {
-            showError(document.getElementById('email'), error.message);
+            showError(registerForm, error.message);
         }
     });
 }
 
-// Password strength validation
+// Password strength validation for registration form
 const passwordInput = document.getElementById('password');
 if (passwordInput) {
-    passwordInput.addEventListener('input', function() {
+    passwordInput.addEventListener('input', function () {
         const password = this.value;
         const hasUpperCase = /[A-Z]/.test(password);
         const hasLowerCase = /[a-z]/.test(password);
@@ -150,4 +176,4 @@ if (passwordInput) {
             this.setCustomValidity('');
         }
     });
-} 
+}

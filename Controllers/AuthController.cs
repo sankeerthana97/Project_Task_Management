@@ -94,13 +94,14 @@ namespace Project_Task_Management.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                return BadRequest(new { message = string.Join("; ", errors) });
             }
 
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                return Unauthorized(new { message = "Invalid email or password" });
+                return Unauthorized(new { message = "Invalid email or password - user not found" });
             }
 
             if (!user.IsActive)
@@ -108,10 +109,10 @@ namespace Project_Task_Management.Controllers
                 return Unauthorized(new { message = "Account is deactivated" });
             }
 
-            var result = await _userManager.CheckPasswordAsync(user, model.Password);
-            if (!result)
+            var passwordValid = await _userManager.CheckPasswordAsync(user, model.Password);
+            if (!passwordValid)
             {
-                return Unauthorized(new { message = "Invalid email or password" });
+                return Unauthorized(new { message = "Invalid email or password - password check failed" });
             }
 
             var roles = await _userManager.GetRolesAsync(user);
@@ -173,7 +174,7 @@ namespace Project_Task_Management.Controllers
         private string GenerateJwtToken(ApplicationUser user, IList<string> roles)
         {
             var jwtSettings = _configuration.GetSection("Jwt");
-            var key = Encoding.UTF8.GetBytes(jwtSettings["Secret"] ?? throw new InvalidOperationException("JWT Secret not configured"));
+            var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Secret not configured"));
             var issuer = jwtSettings["Issuer"] ?? throw new InvalidOperationException("JWT Issuer not configured");
             var audience = jwtSettings["Audience"] ?? throw new InvalidOperationException("JWT Audience not configured");
             var expirationDays = int.Parse(jwtSettings["ExpirationDays"] ?? "7");

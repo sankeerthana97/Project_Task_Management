@@ -69,9 +69,21 @@ app.UseSwaggerUI();
 //  Commented out HTTPS redirection since you're not using HTTPS locally
 // app.UseHttpsRedirection();
 
-//  Middleware pipeline
+// Redirect root URL "/" to /pages/login.html
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/")
+    {
+        context.Response.Redirect("/pages/login.html");
+        return;
+    }
+    await next();
+});
+
 app.UseCors("AllowAll");
 app.UseStaticFiles();
+
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
