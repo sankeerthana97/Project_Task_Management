@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Project_Task_Management.Models;
-using Project_Task_Management.Models;
 
 namespace Project_Task_Management.Data
 {

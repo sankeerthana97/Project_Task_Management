@@ -6,7 +6,6 @@ using Project_Task_Management.Data;
 using Project_Task_Management.Models;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Project_Task_Management.Models;
 using Project_Task_Management.Services;
 
 namespace Project_Task_Management.Controllers

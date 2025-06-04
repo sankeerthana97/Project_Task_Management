@@ -34,8 +34,13 @@ namespace Project_Task_Management.Controllers
         public async Task<IActionResult> GetTasks()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+            
             var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return Unauthorized();
+
             var role = await _userManager.GetRolesAsync(user);
+            if (role == null || !role.Any()) return Unauthorized();
 
             if (role.Contains("Manager"))
             {
@@ -98,7 +103,10 @@ namespace Project_Task_Management.Controllers
             }
 
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
             var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return Unauthorized();
 
             var project = await _context.Projects
                 .FirstOrDefaultAsync(p => 
@@ -142,11 +150,16 @@ namespace Project_Task_Management.Controllers
             }
 
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
             var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return Unauthorized();
+
             var role = await _userManager.GetRolesAsync(user);
+            if (role == null || !role.Any()) return Unauthorized();
 
             // Only TeamLead can update task status and details
-            if (role.Contains("TeamLead") && existingTask.Project.TeamLeadId != userId)
+            if (role.Contains("TeamLead") && existingTask.Project != null && existingTask.Project.TeamLeadId != userId)
             {
                 return Unauthorized();
             }
@@ -177,7 +190,13 @@ namespace Project_Task_Management.Controllers
         public async Task<IActionResult> AddComment(int taskId, [FromBody] TaskComment comment)
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+            
             var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return Unauthorized();
+
+            var role = await _userManager.GetRolesAsync(user);
+            if (role == null || !role.Any()) return Unauthorized();
 
             var task = await _context.Tasks
                 .Include(t => t.Project)
@@ -188,7 +207,6 @@ namespace Project_Task_Management.Controllers
                 return NotFound();
             }
 
-            var role = await _userManager.GetRolesAsync(user);
             if (!role.Contains("Manager") && 
                 !role.Contains("TeamLead") && 
                 !task.EmployeeId.Equals(userId))
@@ -210,6 +228,7 @@ namespace Project_Task_Management.Controllers
         {
             var employee = await _userManager.FindByIdAsync(task.EmployeeId);
             if (employee == null) return;
+            if (string.IsNullOrEmpty(employee.Email)) return;
             if (string.IsNullOrEmpty(employee.Email)) return;
 
             var subject = "New Task Assignment: " + task.Title;

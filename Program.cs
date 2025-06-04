@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 using Project_Task_Management.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
@@ -86,13 +87,48 @@ app.Use(async (context, next) =>
     await next();
 });
 
+app.UseRouting();
+
 app.UseCors("AllowAll");
 app.UseStaticFiles();
 
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
+
+// Custom middleware to handle redirects after login
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/")
+    {
+        var user = context.User;
+        if (user.Identity?.IsAuthenticated == true)
+        {
+            var role = user.FindFirst(ClaimTypes.Role)?.Value;
+            if (role == "Manager")
+            {
+                context.Response.Redirect("/dashboard/manager");
+            }
+            else if (role == "TeamLead")
+            {
+                context.Response.Redirect("/dashboard/teamlead");
+            }
+            else if (role == "Employee")
+            {
+                context.Response.Redirect("/dashboard/employee");
+            }
+            else
+            {
+                context.Response.Redirect("/pages/login.html");
+            }
+            return;
+        }
+        context.Response.Redirect("/pages/login.html");
+        return;
+    }
+    await next();
+});
 
 // Apply migrations and seed roles
 using (var scope = app.Services.CreateScope())
