@@ -165,8 +165,8 @@ namespace ProjectTaskManagement.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "7da7bd79-6448-49cd-936e-8842d5c94501",
-                            CreatedDate = new DateTime(2025, 6, 3, 19, 17, 42, 199, DateTimeKind.Utc).AddTicks(2154),
+                            ConcurrencyStamp = "67be1a08-2e75-4335-897f-d42b5724fff7",
+                            CreatedDate = new DateTime(2025, 6, 3, 19, 45, 1, 382, DateTimeKind.Utc).AddTicks(8192),
                             Description = "Project Manager role with full access",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
@@ -174,8 +174,8 @@ namespace ProjectTaskManagement.Migrations
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "b5eda1ea-2085-4347-9e0f-9ba9883dca82",
-                            CreatedDate = new DateTime(2025, 6, 3, 19, 17, 42, 199, DateTimeKind.Utc).AddTicks(2231),
+                            ConcurrencyStamp = "577cfb34-9722-4d34-998e-95450ab9f26a",
+                            CreatedDate = new DateTime(2025, 6, 3, 19, 45, 1, 382, DateTimeKind.Utc).AddTicks(8266),
                             Description = "Team Lead role with team management access",
                             Name = "TeamLead",
                             NormalizedName = "TEAMLEAD"
@@ -183,8 +183,8 @@ namespace ProjectTaskManagement.Migrations
                         new
                         {
                             Id = "3",
-                            ConcurrencyStamp = "1049c57c-ab90-4b93-b165-40d9d0590d0a",
-                            CreatedDate = new DateTime(2025, 6, 3, 19, 17, 42, 199, DateTimeKind.Utc).AddTicks(2240),
+                            ConcurrencyStamp = "2b05dd14-b62c-4c97-be9b-b96a9694ecae",
+                            CreatedDate = new DateTime(2025, 6, 3, 19, 45, 1, 382, DateTimeKind.Utc).AddTicks(8281),
                             Description = "Employee role with basic access",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"

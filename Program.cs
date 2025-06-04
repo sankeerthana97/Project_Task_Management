@@ -8,14 +8,19 @@ using Project_Task_Management.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//  Debug log to confirm JWT Key is loaded
+var jwtKey = builder.Configuration["Jwt:Key"]
+    ?? throw new InvalidOperationException("JWT Key is missing in configuration.");
+Console.WriteLine("JWT Key from config: " + jwtKey);
+
+//  Add controller support
 builder.Services.AddControllers();
 
-// Configure DbContext
+//  Configure EF Core with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configure Identity
+// Configure Identity with EF stores
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
@@ -36,51 +41,42 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
 });
 
-// Configure CORS
+//  Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        });
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
 });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//  Swagger for API testing
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//  Enable Swagger in all environments
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+//  Commented out HTTPS redirection since you're not using HTTPS locally
+// app.UseHttpsRedirection();
 
-// Use CORS
+//  Middleware pipeline
 app.UseCors("AllowAll");
-
-// Use static files
 app.UseStaticFiles();
-
-// Use authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
-// Ensure database is created and migrations are applied
+// Apply migrations and seed roles
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -92,18 +88,18 @@ using (var scope = app.Services.CreateScope())
 
         context.Database.Migrate();
 
-        // Seed roles if they don't exist
-        if (!roleManager.RoleExistsAsync("Manager").Result)
+        // Seed default roles
+        string[] roles = { "Manager", "TeamLead", "Employee" };
+        foreach (var roleName in roles)
         {
-            roleManager.CreateAsync(new ApplicationRole { Name = "Manager", Description = "Manager role with full access" }).Wait();
-        }
-        if (!roleManager.RoleExistsAsync("TeamLead").Result)
-        {
-            roleManager.CreateAsync(new ApplicationRole { Name = "TeamLead", Description = "Team Lead role with team management access" }).Wait();
-        }
-        if (!roleManager.RoleExistsAsync("Employee").Result)
-        {
-            roleManager.CreateAsync(new ApplicationRole { Name = "Employee", Description = "Employee role with basic access" }).Wait();
+            if (!roleManager.RoleExistsAsync(roleName).Result)
+            {
+                roleManager.CreateAsync(new ApplicationRole
+                {
+                    Name = roleName,
+                    Description = $"{roleName} role"
+                }).Wait();
+            }
         }
     }
     catch (Exception ex)
@@ -113,4 +109,4 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-app.Run(); 
+app.Run();

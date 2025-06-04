@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WzJfYBjRxOrTxa/0lwRvjNAlgfrNiYSg7tznamu7Jl4=",
+  "Hash": "jpyc20vtciSPvFXeVShl+pjSciA6sXtlFm1zfAgZVHU=",
   "Source": "Project_Task_Management",
   "BasePath": "_content/Project_Task_Management",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Project_Task_Management\\wwwroot",
       "Source": "Project_Task_Management",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "css/auth#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\css\\auth.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "css/dashboard#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\css\\dashboard.css"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "js/auth#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\js\\auth.js"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "js/dashboard#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\js\\dashboard.js"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "pages/dashboard/layout#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\pages\\dashboard\\layout.html"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "pages/login#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\pages\\login.html"
     },
     {
-      "Identity": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "Identity": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
       "SourceId": "Project_Task_Management",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\",
       "BasePath": "_content/Project_Task_Management",
       "RelativePath": "pages/register#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -167,7 +167,7 @@
   "Endpoints": [
     {
       "Route": "css/auth.css",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -188,7 +188,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:55 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -204,7 +204,7 @@
     },
     {
       "Route": "css/auth.g11y4lgsb0.css",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -225,7 +225,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:55 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -249,7 +249,7 @@
     },
     {
       "Route": "css/dashboard.css",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -270,7 +270,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:10:03 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -286,7 +286,7 @@
     },
     {
       "Route": "css/dashboard.fzvx1v7tkw.css",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -307,7 +307,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:10:03 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -331,7 +331,7 @@
     },
     {
       "Route": "js/auth.6vcrttuy1s.js",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -352,7 +352,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:59:21 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -376,7 +376,7 @@
     },
     {
       "Route": "js/auth.js",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -397,7 +397,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:59:21 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -413,7 +413,7 @@
     },
     {
       "Route": "js/dashboard.ffbma138uf.js",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -434,7 +434,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:10:45 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -458,7 +458,7 @@
     },
     {
       "Route": "js/dashboard.js",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -479,7 +479,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:10:45 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -495,7 +495,7 @@
     },
     {
       "Route": "pages/dashboard/layout.86rpyskmpf.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -516,7 +516,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:09:42 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -540,7 +540,7 @@
     },
     {
       "Route": "pages/dashboard/layout.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -561,7 +561,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 17:09:42 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -577,7 +577,7 @@
     },
     {
       "Route": "pages/login.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -598,7 +598,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:22 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -614,7 +614,7 @@
     },
     {
       "Route": "pages/login.qu4cgk8a9y.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -635,7 +635,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:22 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -659,7 +659,7 @@
     },
     {
       "Route": "pages/register.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -680,7 +680,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:39 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -696,7 +696,7 @@
     },
     {
       "Route": "pages/register.v1uyz5cpqg.html",
-      "AssetFile": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "AssetFile": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -717,7 +717,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 03 Jun 2025 16:58:39 GMT"
+          "Value": "Tue, 03 Jun 2025 19:11:15 GMT"
         },
         {
           "Name": "Cache-Control",

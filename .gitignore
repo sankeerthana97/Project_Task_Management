@@ -37,8 +37,6 @@ Thumbs.db
 ehthumbs.db
 .DS_Store
 
-# Publish output
-wwwroot/
 
 # Others
 appsettings.Development.json

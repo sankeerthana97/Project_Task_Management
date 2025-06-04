@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\auth.css",
       "PackagePath": "staticwebassets\\css\\auth.css"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\css\\dashboard.css",
       "PackagePath": "staticwebassets\\css\\dashboard.css"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\auth.js",
       "PackagePath": "staticwebassets\\js\\auth.js"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\js\\dashboard.js",
       "PackagePath": "staticwebassets\\js\\dashboard.js"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\dashboard\\layout.html",
       "PackagePath": "staticwebassets\\pages\\dashboard\\layout.html"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\login.html",
       "PackagePath": "staticwebassets\\pages\\login.html"
     },
     {
-      "Id": "C:\\Users\\HP\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
+      "Id": "C:\\Users\\sadr\\source\\repos\\Project_Task_Management\\wwwroot\\pages\\register.html",
       "PackagePath": "staticwebassets\\pages\\register.html"
     },
     {
