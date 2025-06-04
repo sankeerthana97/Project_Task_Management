@@ -177,7 +177,9 @@ namespace Project_Task_Management.Controllers
             var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Secret not configured"));
             var issuer = jwtSettings["Issuer"] ?? throw new InvalidOperationException("JWT Issuer not configured");
             var audience = jwtSettings["Audience"] ?? throw new InvalidOperationException("JWT Audience not configured");
-            var expirationDays = int.Parse(jwtSettings["ExpirationDays"] ?? "7");
+            // Convert minutes to seconds for token expiration
+            var expireMinutes = int.Parse(jwtSettings["ExpireMinutes"] ?? "60");
+            var expireSeconds = expireMinutes * 60;
 
             var claims = new List<Claim>
             {
@@ -195,7 +197,7 @@ namespace Project_Task_Management.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.UtcNow.AddDays(expirationDays),
+                Expires = DateTime.UtcNow.AddSeconds(expireSeconds),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Issuer = issuer,
                 Audience = audience

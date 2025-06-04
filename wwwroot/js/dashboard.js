@@ -25,10 +25,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Check if user is authenticated
 function checkAuth() {
+    // Check for token in localStorage
     const token = localStorage.getItem('authToken');
     if (!token) {
-        window.location.href = '/pages/login.html';
-        return;
+        // Check for token in cookies
+        const cookieToken = document.cookie.split('; ').find(row => row.startsWith('jwt='));
+        if (cookieToken) {
+            const tokenValue = cookieToken.split('=')[1];
+            localStorage.setItem('authToken', tokenValue);
+        } else {
+            window.location.href = '/pages/login.html';
+            return;
+        }
     }
 
     // Verify token with backend
@@ -48,10 +56,21 @@ function checkAuth() {
         document.getElementById('userName').textContent = data.name;
         // Load role-specific content
         loadRoleSpecificContent(data.role);
+        // Store token in cookies if not already there
+        if (!document.cookie.split('; ').find(row => row.startsWith('jwt='))) {
+            const cookieOptions = {
+                path: '/',
+                secure: false, // Set to true in production
+                sameSite: 'Lax'
+            };
+            document.cookie = `jwt=${encodeURIComponent(token)}; ${Object.entries(cookieOptions).map(([key, value]) => `${key}=${value}`).join('; ')}`;
+        }
     })
     .catch(error => {
         console.error('Auth error:', error);
         localStorage.removeItem('authToken');
+        // Clear JWT cookie
+        document.cookie = 'jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         window.location.href = '/pages/login.html';
     });
 }

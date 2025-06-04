@@ -9,7 +9,7 @@ using System.Text;
 using Project_Task_Management.Data;
 using Project_Task_Management.Models;
 using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.AspNetCore.Http; // For StringValues
+using Microsoft.AspNetCore.Http; // For StringValues and session
 using System.Linq; // For FirstOrDefault
 using System.Collections.Generic; // For IEnumerable
 using System.IdentityModel.Tokens.Jwt; // For JwtSecurityTokenHandler
@@ -36,6 +36,14 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 // Configure Email Service
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Smtp"));
 builder.Services.AddScoped<IEmailService, EmailService>();
+
+// Add Session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(60);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // Configure JWT Authentication
 builder.Services.AddAuthentication(options =>
@@ -94,10 +102,12 @@ app.Use(async (context, next) =>
 
 app.UseRouting();
 
+app.UseSession();
+
 app.UseCors("AllowAll");
 app.UseStaticFiles();
 
-// Add JWT token middleware to handle token from localStorage
+// Add JWT token middleware to handle token storage and validation
 app.Use(async (context, next) =>
 {
     // Try to get token from cookie first
@@ -128,33 +138,28 @@ app.Use(async (context, next) =>
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
             };
 
-            // Validate the token using the same parameters as JWT Bearer
             var handler = new JwtSecurityTokenHandler();
-            var parameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                ValidAudience = builder.Configuration["Jwt:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-            };
-
-            var principal = handler.ValidateToken(token, parameters, out var _);
-            if (principal != null)
-            {
-                context.User = principal;
-            }
+            var tokenClaims = handler.ReadJwtToken(token).Claims;
             
-            if (principal != null)
-            {
-                context.User = principal;
-            }
+            // Create a new ClaimsIdentity with the token claims
+            var identity = new ClaimsIdentity(tokenClaims, "jwt");
+            
+            // Add additional claims if needed
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, tokenClaims.FirstOrDefault(c => c.Type == "sub")?.Value ?? ""));
+            
+            // Set the user principal
+            context.User = new ClaimsPrincipal(identity);
+            
+            // Store token in session
+            context.Session.SetString("JwtToken", token);
+            
+            // Set the token in the context for API requests
+            context.Items["JwtToken"] = token;
         }
         catch
         {
             // If token is invalid, continue without authentication
+            context.User = null;
         }
     }
     await next();
