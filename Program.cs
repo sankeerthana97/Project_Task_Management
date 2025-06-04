@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http; // For StringValues and session
 using System.Linq; // For FirstOrDefault
 using System.Collections.Generic; // For IEnumerable
 using System.IdentityModel.Tokens.Jwt; // For JwtSecurityTokenHandler
+using Microsoft.Extensions.Caching.Memory; // For in-memory caching
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +38,10 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Smtp"));
 builder.Services.AddScoped<IEmailService, EmailService>();
 
-// Add Session
+// Add in-memory caching
+builder.Services.AddMemoryCache();
+
+// Add Session with in-memory store
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);
