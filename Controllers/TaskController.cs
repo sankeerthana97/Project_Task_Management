@@ -210,6 +210,7 @@ namespace Project_Task_Management.Controllers
         {
             var employee = await _userManager.FindByIdAsync(task.EmployeeId);
             if (employee == null) return;
+            if (string.IsNullOrEmpty(employee.Email)) return;
 
             var subject = "New Task Assignment: " + task.Title;
             var body = "<h3>Task Assignment Notification</h3>" +

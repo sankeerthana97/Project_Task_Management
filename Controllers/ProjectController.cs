@@ -35,10 +35,15 @@ namespace Project_Task_Management.Controllers
         public async Task<IActionResult> GetProjects()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+            
             var user = await _userManager.FindByIdAsync(userId);
-            var role = await _userManager.GetRolesAsync(user);
+            if (user == null) return Unauthorized();
 
-            if (role.Contains("Manager"))
+            var roles = await _userManager.GetRolesAsync(user);
+            if (roles == null) return Unauthorized();
+
+            if (roles.Contains("Manager"))
             {
                 return Ok(await _context.Projects
                     .Include(p => p.TeamLead)
@@ -46,7 +51,7 @@ namespace Project_Task_Management.Controllers
                     .ThenInclude(pa => pa.Employee)
                     .ToListAsync());
             }
-            else if (role.Contains("TeamLead"))
+            else if (roles.Contains("TeamLead"))
             {
                 return Ok(await _context.Projects
                     .Where(p => p.TeamLeadId == userId)
@@ -89,6 +94,8 @@ namespace Project_Task_Management.Controllers
             }
 
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId)) return Unauthorized();
+            
             project.TeamLeadId = userId;
             project.CreatedAt = DateTime.UtcNow;
 
@@ -163,10 +170,8 @@ namespace Project_Task_Management.Controllers
             }
 
             var employee = await _userManager.FindByIdAsync(employeeId);
-            if (employee == null)
-            {
-                return BadRequest("Employee not found");
-            }
+            if (employee == null) return NotFound();
+            if (string.IsNullOrEmpty(employee.Email)) return BadRequest("Employee email is required");
 
             var existingAssignment = await _context.ProjectAssignments
                 .FirstOrDefaultAsync(pa => 
@@ -215,7 +220,10 @@ namespace Project_Task_Management.Controllers
                         "<p>Please check your dashboard for more details.</p>" +
                         "<p>Best regards,<br>Project Management Team</p>";
 
-            await _emailService.SendEmailAsync(employee.Email, subject, body);
+            if (!string.IsNullOrEmpty(employee.Email))
+            {
+                await _emailService.SendEmailAsync(employee.Email, subject, body);
+            }
         }
     }
 }

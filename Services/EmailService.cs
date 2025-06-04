@@ -6,11 +6,11 @@ namespace Project_Task_Management.Services
 {
     public class EmailSettings
     {
-        public string Host { get; set; }
-        public int Port { get; set; }
-        public string User { get; set; }
-        public string Pass { get; set; }
-        public string From { get; set; }
+        public required string Host { get; set; }
+        public int Port { get; set; } = 587;
+        public required string User { get; set; }
+        public required string Pass { get; set; }
+        public required string From { get; set; }
     }
 
     public interface IEmailService
