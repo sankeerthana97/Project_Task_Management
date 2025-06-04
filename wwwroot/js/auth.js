@@ -80,7 +80,16 @@ if (loginForm) {
             }
 
             if (data.token) {
+                // Store token in localStorage
                 localStorage.setItem('authToken', data.token);
+                
+                // Store token in cookie
+                const cookieOptions = {
+                    path: '/',
+                    secure: false, // Set to true in production
+                    sameSite: 'Lax'
+                };
+                document.cookie = `jwt=${encodeURIComponent(data.token)}; ${Object.entries(cookieOptions).map(([key, value]) => `${key}=${value}`).join('; ')}`;
             }
 
             const roles = data.user?.roles || [];

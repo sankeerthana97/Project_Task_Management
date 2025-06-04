@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Project_Task_Management.Data;
 using Project_Task_Management.Models;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -91,6 +92,39 @@ app.UseRouting();
 
 app.UseCors("AllowAll");
 app.UseStaticFiles();
+
+// Add JWT token middleware to handle token from localStorage
+app.Use(async (context, next) =>
+{
+    var token = context.Request.Cookies["jwt"] ?? context.Request.Headers["Authorization"];
+    if (!string.IsNullOrEmpty(token))
+    {
+        if (token.StartsWith("Bearer "))
+        {
+            token = token.Substring("Bearer ".Length).Trim();
+        }
+        
+        try
+        {
+            var jwtToken = new JsonWebToken(token);
+            var userId = jwtToken.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+            if (!string.IsNullOrEmpty(userId))
+            {
+                var userManager = context.RequestServices.GetRequiredService<UserManager<ApplicationUser>>();
+                var user = await userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    context.User = new ClaimsPrincipal(new ClaimsIdentity(jwtToken.Claims, "jwt"));
+                }
+            }
+        }
+        catch
+        {
+            // If token is invalid, continue without authentication
+        }
+    }
+    await next();
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
